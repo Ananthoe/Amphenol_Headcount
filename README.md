@@ -61,3 +61,85 @@ VAR CurrentHC =
     )
 RETURN
 IF(BaseHC <> 0, DIVIDE(CurrentHC - BaseHC, BaseHC))
+
+
+// 🔁 QoQ % Change between June 2025 and Sep 2025
+QoQ Headcount % Change =
+VAR Current_Q = CALCULATE(SUM(Fact_Div_Grp_Hc[Headcount]), Fact_Div_Grp_Hc[Month_Year] = "Sep 2025")
+VAR Prev_Q = CALCULATE(SUM(Fact_Div_Grp_Hc[Headcount]), Fact_Div_Grp_Hc[Month_Year] = "Jun 2025")
+RETURN DIVIDE(Current_Q - Prev_Q, Prev_Q)
+
+
+// 📈 Absolute Headcount Change Mar 2025 vs Dec 2024
+Headcount_Change_Mar_vs_Dec =
+VAR Mar = CALCULATE(SUM(Fact_Div_Grp_Hc[Headcount]), Fact_Div_Grp_Hc[Date] = DATE(2025, 3, 31))
+VAR Dec = CALCULATE(SUM(Fact_Div_Grp_Hc[Headcount]), Fact_Div_Grp_Hc[Date] = DATE(2024, 12, 31))
+RETURN Mar - Dec
+```
+## 📊 Dashboard Pages
+
+### 1. Executive Summary
+
+- **KPI Cards**:
+  - ✅ Total Headcount
+  - 🔁 QoQ Growth
+  - 📆 YoY Growth
+  - 🌱 Organic Growth
+  - 🧩 Acquisition Impact
+  - 📈 Net Headcount Change
+- **Charts & Visuals**:
+  - Total Headcount by Quarter (line chart)
+  - Headcount by Region (stacked bar)
+  - Headcount by Country (donut chart)
+  - Headcount by Labor Type (clustered bar)
+  - Headcount by Cost Type (clustered bar)
+
+---
+
+### 2. Division & Group Overview
+
+- QoQ Headcount Change by Group (clustered bar with dynamic title)
+- Headcount by Business Unit:
+  - Interactive drill-down by Region → Division → Group
+  - Includes slicers for Quarter, Labor Type, Gender
+- Matrix View:
+  - Business Unit × Quarter
+  - Columns for Total HC, Gender, Labor Split
+
+---
+
+### 3. Regional & Country View
+
+- Region-level Trend Analysis (line chart over time)
+- Headcount by Cost Type across Regions (100% stacked bar)
+- Labor Type Breakdown (bar chart — Salary, Hourly Direct, Indirect)
+- Matrix:
+  - Region → Country → Business Unit hierarchy
+  - Interactive search for any BU or Country
+- Slicers:
+  - Region, Country, Business Unit
+
+---
+
+## 🧰 Tools Used
+
+| Tool         | Purpose                                      |
+|--------------|----------------------------------------------|
+| Power BI     | Data modeling, dashboard creation, DAX       |
+| Power Query  | Data cleaning and transformation             |
+| Excel        | Original source files                        |
+| DAX          | Custom KPIs, growth logic, dynamic titles    |
+| ChatGPT      | Used for bulk transformation and automation  |
+
+---
+
+## 🔐 Confidentiality Notice
+
+> This dashboard was developed using internal data and confidential structure.  
+> For public distribution, all business unit names, groups, and sensitive identifiers have been:
+> - ✅ Renamed or replaced with generic placeholders
+> - ✅ Hashed or masked in sample datasets
+> - ✅ Screenshots curated to avoid exposing strategic or confidential insights
+
+
+
