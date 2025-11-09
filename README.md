@@ -36,7 +36,8 @@ To design a dynamic, high-level headcount dashboard that helps executives answer
 - Used **Power Query M** for transformations and merging
 - Defined relationships across 15+ tables (BU, Group, Division, Region, Date, Labor Type)
 
-![Data Model Diagram](<"D:\Users\ajitha\Pictures\Screenshots\Screenshot 2025-11-09 163001.png">)
+<img width="1367" height="653" alt="Screenshot 2025-11-09 163001" src="https://github.com/user-attachments/assets/882f4ab0-7799-4ded-b26b-bdaef59828ad" />
+
 
 ---
 
